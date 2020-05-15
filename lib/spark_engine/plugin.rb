@@ -58,12 +58,6 @@ module SparkEngine
 
       end)
 
-      # Autoload engine lib and components path
-      @engine.config.autoload_paths.concat [
-        File.join(@engine.spark_plugin_path, "lib"),
-        SparkEngine.plugin.paths[:components]
-      ]
-
       @engine.config.after_initialize do |app|
         if defined?(SassC) && defined?(SassC::Rails)
           # Inject Sass importer for yaml files
